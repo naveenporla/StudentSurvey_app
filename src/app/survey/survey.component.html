@@ -1,0 +1,224 @@
+<meta charset="ISO-8859-1">
+
+<title>GMU Survey Form</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+ 
+ <div class="bg-light">
+    <div class="py-3 text-center" style="background-color:#FFCC33 ">
+      <div style="background-color: #006633 ">
+        <img class="d-block mx-auto " src="assets/img/mason-logo2.png" alt="George Mason Logo" width="70" height="70">
+      </div>
+    </div>
+  <div class="container">
+  <h2 class="py-2 text-center custom-style">Survey Form</h2> 
+
+
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+
+          <form class="py-3 needs-validation" #studentForm="ngForm" (ngSubmit) = "onSubmit(studentForm)" autocomplete="on" >
+            <div class="mb-3">
+              <label for="fname">First Name<label style="color: red">*</label></label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name"  autofocus  [(ngModel)]="record.fname" #fname="ngModel" required>
+              </div>
+                <div *ngIf="fname.invalid && (fname.touched||fname.dirty)"  style="color: red;width: 100%;">
+                  Please enter First Name.
+                </div>
+                <div id="errorfName" style="color: red"></div>
+            </div>
+            <div class="mb-3">
+                <label for="lname">Last Name<label style="color: red">*</label></label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name"  [(ngModel)]="record.lname" #lname="ngModel" required>
+                </div>
+                  <div *ngIf="lname.invalid && (lname.touched||lname.dirty)" style="color: red;width: 100%;">
+                    Please enter Last Name.
+                  </div>
+                  <div id="errorlName" style="color: red"></div>
+              </div>
+      
+              <div class="mb-3">
+                <label for="studentid">Student ID<label style="color: red" >*</label></label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="studentid" name="studentid" placeholder="G01122334"   [(ngModel)]="record.studentid" #studentid="ngModel" required>
+                </div>
+                  <div *ngIf="studentid.invalid && (studentid.touched||studentid.dirty)" style="color: red;width: 100%;">
+                    Please enter Student ID.
+                  </div>
+                  <div id="errorStudentid" style="color: red"></div>
+              </div>
+              <div class="mb-3">
+                  <label for="email">Email<label style="color: red">*</label></label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com"  [(ngModel)]="record.email" #email="ngModel" required>
+                  <div *ngIf="email.invalid && (email.touched||email.dirty)" style="color: red;width: 100%;">
+                    Please enter a valid email address.
+                  </div>
+                  <div id="errorEmail" style="color: red"></div>
+                </div>
+        
+                <div class="mb-3">
+                  <label for="address">Street Address<label style="color: red">*</label></label>
+                  <input type="text" class="form-control" id="streetaddress" name="streetaddress" placeholder="1234 Main St"  [(ngModel)]="record.streetaddress" #streetaddress="ngModel" required>
+                  <div id="errorStreet" style="color: red"></div>
+                  <div *ngIf="streetaddress.invalid && (streetaddress.touched||streetaddress.dirty)" style="color: red;width: 100%;">
+                    Please enter your street address.
+                  </div>
+                </div>
+        
+                <div class="mb-3">
+                  <label for="city">City<label style="color: red">*</label></label>
+                  <input type="text" class="form-control" id="city" name="city" placeholder="City"  [(ngModel)]="record.city" #city="ngModel" required>
+                  <div *ngIf="city.invalid && (city.touched||city.dirty)" style="color: red;width: 100%;">
+                    Please enter city.
+                  </div>
+                </div>
+        
+                <div class="row">
+                  <div class="col-md-5 mb-3">
+                    <label for="country">Country<label style="color: red">*</label></label>
+                    <input type="text" class="form-control" id="country" name="country" placeholder="country"  [(ngModel)]="record.country" #country="ngModel" required>
+                    <div *ngIf="country.invalid && (country.touched||country.dirty)" style="color: red;width: 100%;">
+                    Please enter country.
+                  </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="state">State<label style="color: red">*</label></label>
+                    <input type="text" class="form-control" id="state" name="state" placeholder="state"  [(ngModel)]="record.state" #state="ngModel" required>
+                    <div *ngIf="state.invalid && (state.touched||state.dirty)" style="color: red;width: 100%;">
+                    Please enter state.
+                  </div>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="zipcode">Zipcode<label style="color: red">*</label></label>
+                    <input type="number" class="form-control" id="zipcode" name="zipcode" placeholder="zipcode"  [(ngModel)]="record.zipcode" #zipcode="ngModel" required>
+                    <div *ngIf="zipcode.invalid && (zipcode.touched||zipcode.dirty)" style="color: red;width: 100%;">
+                    Please enter zipcode.
+                  </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                    <label for="data">Data</label>
+                <input type="text" class="form-control" id="data" name="data" placeholder="1,2,3,4,5,6,7,8,9,10"  [(ngModel)]="record.data" #data="ngModel" required>
+                    <div *ngIf="data.invalid && (data.touched||data.dirty)" style="color: red;width: 100%;">Please Enter atleast 10 numbers in data field</div>
+                  </div>
+          
+                  <div class="mb-3">
+                    <label for="telephone">Telephone number</label>
+                    <input type="number" class="form-control" id="telephone" name="telephone" placeholder="555-555-5555" [(ngModel)]="record.telephone">
+                  </div>
+          
+                  <div class="mb-3">
+                    <label for="url">URL<span class="text-muted">(Optional)</span></label>
+                    <input type="text" class="form-control" id="url" name="url" placeholder="http://username_example.com" [(ngModel)]="record.url">
+                  </div>
+          
+                  <div class="mb-3">
+                    <label for="surveydate">Date of Survey</label>
+                    <input type="date" class="form-control" id="surveydate" name="surveydate" placeholder="mm-dd-yyyy" [(ngModel)]="record.surveydate">
+                  </div>
+          
+                  <hr class="mb-4">
+                  <h5>What did you like most about the campus</h5>
+                  <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="students" name="likemost" value="Students" [(ngModel)]="likemost.Students">
+                      <label class="custom-control-label" for="students">Students</label>
+                    </div>
+            
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="location" name="likemost" value="Location" [(ngModel)]="likemost.Location">
+                      <label class="custom-control-label" for="location">Location</label>
+                    </div>
+            
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="campus" name="likemost" value="Campus" [(ngModel)]="likemost.Campus">
+                      <label class="custom-control-label" for="campus">Campus</label>
+                    </div>
+            
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="atmosphere" name="likemost" value="Atmosphere" [(ngModel)]="likemost.Atmosphere">
+                      <label class="custom-control-label" for="atmosphere">Atmosphere</label>
+                    </div>
+            
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="dormrooms" name="likemost" value="Dormrooms" [(ngModel)]="likemost.Dormrooms">
+                      <label class="custom-control-label" for="dormrooms">Dorm-rooms</label>
+                    </div>
+            
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="sports" name="likemost" value="Sports" [(ngModel)]="likemost.Sports">
+                      <label class="custom-control-label" for="sports">Sports</label>
+                    </div>
+                    <hr class="mb-4">
+        <h5>How did you get interested in the university<label style="color: red">*</label></h5>
+
+        <div class="d-block my-3">
+          <div class="custom-control custom-radio">
+            <input id="friends" name="interestInUniversity" type="radio" class="custom-control-input" value="Friends" [(ngModel)]="record.interestInUniversity">
+            <label class="custom-control-label" for="friends">Friends</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="television" name="interestInUniversity" type="radio" class="custom-control-input" value="Television" [(ngModel)]="record.interestInUniversity">
+            <label class="custom-control-label" for="television">Television</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="internet" name="interestInUniversity" type="radio" class="custom-control-input" value="Internet" [(ngModel)]="record.interestInUniversity">
+            <label class="custom-control-label" for="internet">Internet</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="others" name="interestInUniversity" type="radio" class="custom-control-input" value="Others" [(ngModel)]="record.interestInUniversity">
+            <label class="custom-control-label" for="others">Others</label>
+          </div>
+        </div>
+
+        <hr class="mb-4">
+        <h5>Additional Comments</h5>
+        <textarea id="comments" name="comments" rows="4" cols="100" [(ngModel)]="record.comments"></textarea>
+        <hr class="mb-4">
+        <h5>Please select high-school graduation date</h5>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="graduationMonth">Month</label>
+            <input list="month" name="month" [(ngModel)]="record.month">
+              <datalist id="month">
+                <option value="January">
+                <option value="February">
+                <option value="March">
+                <option value="April">
+                <option value="May">
+                <option value="June">
+                <option value="July">
+                <option value="August">
+                <option value="September">
+                <option value="October">
+                <option value="November">
+                <option value="December">
+              </datalist>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="graduationYear">Year</label>
+            <input type="number"  min="1950" max="2020" step="1" id="graduationYear" name="graduationYear" placeholder="yyyy" [(ngModel)]="record.graduationYear">
+          </div>
+        </div>
+
+        <hr class="mb-4">
+        <h5>How likely are you to recommend this school to other prospective students</h5>
+
+        <div class="mb-3">
+          <select id="recommend" name="recommend" [(ngModel)]="record.recommend">
+            <option value="veryLikely">Very Likely</option>
+            <option value="likely">Likely</option>
+            <option value="unlikely">Unlikely</option>
+          </select>
+        </div>
+        <hr class="mb-4">
+        <div class="row ">
+          <button class="col-md-5 btn btn-primary btn-lg btn-block" type="button"  style="margin-top: 0.5rem; margin-right: 0.5rem" >Reset</button>
+          <button class="col-md-5 btn btn-primary btn-lg btn-block" type="submit" value="Submit">Submit</button>
+        </div>
+        
+ </form>
+ </div>
+</div>
